@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# superclass for piece types
 class Piece
     attr_reader :symbol, :color
     attr_accessor :location

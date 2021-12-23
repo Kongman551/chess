@@ -27,6 +27,8 @@ class Board
         insert_red
     end
 
+    # black is default color
+    # all pieces except pawn start on row 0
     def insert_black(color = :black, coor = 0)
         insert_king(black_king, color, coor)
         insert_queen(black_queen, color, coor)
@@ -36,6 +38,8 @@ class Board
         insert_pawns(black_pawn, color, 1)
     end
 
+    # red is default color
+    # all pieces except pawn start on row 7
     def insert_red(color = :red, coor = 7)
         insert_king(red_king, color, coor)
         insert_queen(red_queen, color, coor)
@@ -74,19 +78,12 @@ class Board
         end
     end
 
+    # uses print_help to print empty space or piece
     def show_pieces
         @grid.each do |row|
             row.map! do |space|
                 print_help(space)
             end
         end
-    end
-    
-    def test
-        
-    end
-    
-    def create_pawns
-
     end
 end

@@ -13,9 +13,9 @@ class Game
     end
 
     def play_game
-        system 'clear'
+        intro
+        rules
         board.start_board
         display_board(board)
-        board.test
     end
 end

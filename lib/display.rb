@@ -1,8 +1,26 @@
+# frozen_string_literal: true
+
 require 'colorize'
 require_relative './pieces/piece'
-#require_relative 'game'
 
 module Display
+    def intro
+        system 'clear'
+        puts "Welcome to Chess!\n\n".red.on_light_black
+    end
+
+    def rules
+        puts "If you do not know how to play the rules can be found at the link below:\n"
+        puts "https://www.chessvariants.org/d.chess/chess.html\n\n"
+        puts "Press any key to continue..."
+        gets.chomp
+        system 'clear'
+    end
+
+    def ask_player_coor
+        puts "select the piece you want to move to see available moves"
+    end
+
     def empty_space; "[ ]" end
 
     def black_king; "\u265a".black end
@@ -41,6 +59,7 @@ module Display
         puts (1..8).to_a.join("  ")
     end
 
+    # checks space for empty else prints piece symbol
     def print_help(grid_item)
         grid_item == "[ ]" ? "[ ]" : "[#{grid_item.symbol}]"
     end
