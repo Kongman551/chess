@@ -4,4 +4,4 @@ require_relative 'game'
 require_relative 'display'
 
 g = Game.new
-g.test
+g.play_game

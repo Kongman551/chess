@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'piece'
+
 class Knight < Piece
-    def initialize
-
-    end
-
-    def knight_moves(start, dest)
-        queue = []
-        current_node = Node.new(start)
+    def initialize(symbol, color, location)
+        super(symbol, color, location)
     end
 end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class King
-    attr_accessor :symbol
+require_relative 'piece'
 
-    def initialize(symbol)
-        @symbol = symbol
+class King < Piece
+    def initialize(symbol, color, location)
+        super(symbol, color, location)
     end
 end

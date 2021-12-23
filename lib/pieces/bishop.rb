@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Bishop < Piece
-    def initialize
+require_relative 'piece'
 
+class Bishop < Piece
+    def initialize(symbol, color, location)
+        super(symbol, color, location)
     end
 end

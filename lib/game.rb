@@ -12,8 +12,10 @@ class Game
         @board = Board.new
     end
 
-    def test
-        @board.start_board
-        display_board
+    def play_game
+        system 'clear'
+        board.start_board
+        display_board(board)
+        board.test
     end
 end
