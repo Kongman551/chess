@@ -6,7 +6,7 @@ require_relative './pieces/piece'
 module Display
     def intro
         system 'clear'
-        puts "Welcome to Chess!\n\n".red.on_light_black
+        puts "Welcome to Chess!\n\n".white.on_light_black
     end
 
     def rules
@@ -18,7 +18,12 @@ module Display
     end
 
     def ask_player_coor
-        puts "select the piece you want to move to see available moves"
+        puts "Select a piece to see available moves"
+        puts "ex. a2, d7"
+    end
+    
+    def invalid_input
+        puts "Invalid input, select again"
     end
 
     def empty_space; "[ ]" end
@@ -56,7 +61,7 @@ module Display
             num -= 1
         end
         print "   "
-        puts (1..8).to_a.join("  ")
+        puts (:A..:H).to_a.join("  ")
     end
 
     # checks space for empty else prints piece symbol
