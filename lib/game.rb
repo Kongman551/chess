@@ -2,6 +2,7 @@
 
 require_relative 'display'
 require_relative 'board'
+require_relative 'translator'
 
 class Game
     include Display
@@ -24,6 +25,7 @@ class Game
     def player_turn
         display_player(@player)
         @current_selection = get_coor
+        translate_input(@current_selection)
     end
 
     def get_coor
@@ -49,7 +51,8 @@ class Game
         @player == 1 ? @player = 2 : @player = 1
     end
 
-    def highlight_piece(piece)
-
+    def translate_input(input)
+        translator ||= Translator.new
+        translator.translate(input)
     end
 end

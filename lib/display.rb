@@ -55,10 +55,6 @@ module Display
 
     def red_pawn; "\u265f".red end
 
-    def highlight_piece(piece)
-        piece.blink
-    end
-
     def display_board(board)
         num = 8
         board.grid.map do |row|
