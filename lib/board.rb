@@ -78,6 +78,10 @@ class Board
         end
     end
 
+    def select_space
+
+    end
+
     # uses print_help to print empty space or piece
     def show_pieces
         @grid.each do |row|

@@ -10,16 +10,19 @@ module Display
     end
 
     def rules
-        puts "If you do not know how to play the rules can be found at the link below:\n"
+        puts "The rules can be found at the link below:\n"
         puts "https://www.chessvariants.org/d.chess/chess.html\n\n"
         puts "Press any key to continue..."
         gets.chomp
         system 'clear'
     end
 
+    def display_player(player)
+        puts "Player #{player}, it's your turn"
+    end
+
     def ask_player_coor
-        puts "Select a piece to see available moves"
-        puts "ex. a2, d7"
+        puts "Select a piece using algebraic notation"
     end
     
     def invalid_input
@@ -51,6 +54,10 @@ module Display
     def black_pawn; "\u265f".black end
 
     def red_pawn; "\u265f".red end
+
+    def highlight_piece(piece)
+        piece.blink
+    end
 
     def display_board(board)
         num = 8
