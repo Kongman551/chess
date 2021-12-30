@@ -44,7 +44,7 @@ module Display
     def pawn; "\u265f" end
 
     def display_board
-        system 'clear'
+        #system 'clear'
         print_grid 
     end
 
@@ -97,5 +97,9 @@ module Display
 
     def set_color(font_color, bg_color, str)
         print "\e[#{font_color};#{bg_color}m #{str} \e[0m"
+    end
+
+    def display_possible_moves
+
     end
 end

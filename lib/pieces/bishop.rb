@@ -6,4 +6,6 @@ class Bishop < Piece
     def initialize(symbol, color, location)
         super(symbol, color, location)
     end
+
+    
 end

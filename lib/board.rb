@@ -85,8 +85,11 @@ class Board
         end
     end
     
-    def show_avail_moves(piece)
-
+    def show_avail_moves
+        list = []
+        @current_piece.children.each { |child| list << child }
+        print list
+        puts
     end
 
     def select_space(row, col)

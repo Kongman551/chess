@@ -31,6 +31,7 @@ class Game
             invalid_input
             current_selection = translate_input(get_coor)
         end
+        @board.show_avail_moves
         switch_player
     end
 
