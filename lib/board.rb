@@ -7,6 +7,8 @@ require_relative './pieces/knight'
 require_relative './pieces/rook'
 require_relative './pieces/bishop'
 require_relative './pieces/pawn'
+require_relative './pieces/piece'
+require_relative 'game'
 
 class Board
     include Display
@@ -15,11 +17,12 @@ class Board
 
     def initialize
         @grid = Array.new(8) { Array.new(8) { empty_space } }
+        @current_piece = nil
     end
 
     def start_board
         insert_pieces
-        show_pieces
+        show_pieces(@grid)
     end
 
     def insert_pieces
@@ -30,23 +33,23 @@ class Board
     # black is default color
     # all pieces except pawn start on row 0
     def insert_black(color = :black, coor = 0)
-        insert_king(black_king, color, coor)
-        insert_queen(black_queen, color, coor)
-        insert_knights(black_knight, color, coor)
-        insert_rooks(black_rook, color, coor)
-        insert_bishops(black_bishop, color, coor)
-        insert_pawns(black_pawn, color, 1)
+        insert_king(king, color, coor)
+        insert_queen(queen, color, coor)
+        insert_knights(knight, color, coor)
+        insert_rooks(rook, color, coor)
+        insert_bishops(bishop, color, coor)
+        insert_pawns(pawn, color, 1)
     end
 
     # red is default color
     # all pieces except pawn start on row 7
     def insert_red(color = :red, coor = 7)
-        insert_king(red_king, color, coor)
-        insert_queen(red_queen, color, coor)
-        insert_knights(red_knight, color, coor)
-        insert_rooks(red_rook, color, coor)
-        insert_bishops(red_bishop, color, coor)
-        insert_pawns(red_pawn, color, 6)
+        insert_king(king, color, coor)
+        insert_queen(queen, color, coor)
+        insert_knights(knight, color, coor)
+        insert_rooks(rook, color, coor)
+        insert_bishops(bishop, color, coor)
+        insert_pawns(pawn, color, 6)
     end
 
     def insert_king(symbol, color, coor)
@@ -78,16 +81,8 @@ class Board
         end
     end
 
-    def select_space
-
-    end
-
-    # uses print_help to print empty space or piece
-    def show_pieces
-        @grid.each do |row|
-            row.map! do |space|
-                print_help(space)
-            end
-        end
+    def select_space(row, col)
+        @grid[row][col]
+        ## working on selecting a space using @current_piece
     end
 end

@@ -8,9 +8,7 @@ class Translator
 
     def translate(notation)
         coor = notation.split('')
-        @row = translate_row(coor[1])
-        @column = translate_col(coor[0])
-        puts "Row: #{@row} / Col: #{@column}"
+        [@row = translate_row(coor[1]), @column = translate_col(coor[0])]
     end
 
     def translate_row(number)

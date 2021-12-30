@@ -2,8 +2,7 @@
 
 # superclass for piece types
 class Piece
-    attr_reader :symbol, :color
-    attr_accessor :location
+    attr_accessor :symbol, :color, :location
 
     def initialize(symbol, color, location)
         @symbol = symbol
