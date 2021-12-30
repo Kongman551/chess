@@ -18,16 +18,20 @@ class Game
         intro
         rules
         board.start_board
-        3.times do
-            display_board(board)
+        6.times do
             player_turn
+            board.to_s
         end
     end
     
     def player_turn
         display_player(@player)
-        @current_selection = translate_input(get_coor)
-        @board.select_space(@current_selection[0], @current_selection[1])
+        current_selection = translate_input(get_coor)
+        until @board.select_space(current_selection[0], current_selection[1])
+            invalid_input
+            current_selection = translate_input(get_coor)
+        end
+        switch_player
     end
 
     def get_coor
@@ -51,6 +55,10 @@ class Game
 
     def switch_player
         @player == 1 ? @player = 2 : @player = 1
+    end
+
+    def game_over?
+        false
     end
 
     def translate_input(input)

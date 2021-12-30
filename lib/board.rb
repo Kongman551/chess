@@ -13,7 +13,7 @@ require_relative 'game'
 class Board
     include Display
 
-    attr_accessor :grid
+    attr_accessor :grid, :current_piece
 
     def initialize
         @grid = Array.new(8) { Array.new(8) { empty_space } }
@@ -22,12 +22,16 @@ class Board
 
     def start_board
         insert_pieces
-        show_pieces(@grid)
+        to_s
     end
 
     def insert_pieces
         insert_black
         insert_red
+    end
+
+    def to_s
+        display_board
     end
 
     # black is default color
@@ -80,9 +84,17 @@ class Board
             @grid[coor][x] = Pawn.new(symbol, color, [coor, x])
         end
     end
+    
+    def show_avail_moves(piece)
+
+    end
 
     def select_space(row, col)
-        @grid[row][col]
-        ## working on selecting a space using @current_piece
+        sel = @grid[row][col]
+        is_piece?(sel) ? @current_piece = sel : false        
+    end
+ 
+    def is_piece?(space)
+        space != " "
     end
 end
